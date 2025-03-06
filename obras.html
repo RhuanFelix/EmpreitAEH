@@ -52,7 +52,7 @@
             </div>
 
             <!-- tabela -->
-            <table class="table table-hover" id="clientes">
+            <table class="table table-hover" id="obras">
                 <tr>
                     <th scope="col-auto">#</th>
                     <th scope="col-2">Tipo de Construção</th>
@@ -65,48 +65,48 @@
             </table>
 
             <!-- Modal -->
-            <div class="modal fade" id="clienteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
+            <form id="obraForm">
+                <div class="modal fade" id="clienteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
                                 <div class="mb-3">
                                     <label for="TipoDeConstrucao" class="form-label">Tipo de Construção</label>
-                                    <input type="text" class="form-control" id="TipoDeConstrucao" aria-describedby="emailHelp" placeholder="ex: casa, edifício">
+                                    <input type="text" class="form-control" id="TipoDeConstrucao" placeholder="ex: casa, edifício">
                                 </div>
                                 <div class="mb-3">
                                     <label for="cliente" class="form-label">Cliente</label>
                                     <input type="text" class="form-control" id="cliente" placeholder="Informe o nome do cliente">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Logradouro</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Informe o Logradouro">
+                                    <label for="logradouro" class="form-label">Logradouro</label>
+                                    <input type="text" class="form-control" id="logradouro" placeholder="Informe o Logradouro">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Bairro</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Informe o bairro">
+                                    <label for="bairro" class="form-label">Bairro</label>
+                                    <input type="text" class="form-control" id="bairro" placeholder="Informe o bairro">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Cidade</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Informe a cidade">
+                                    <label for="cidade" class="form-label">Cidade</label>
+                                    <input type="text" class="form-control" id="cidade" placeholder="Informe a cidade">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Estado</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Informe o Estado">
+                                    <label for="estado" class="form-label">Estado</label>
+                                    <input type="text" class="form-control" id="estado" placeholder="Informe o Estado">
                                 </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                <button type="submit" class="btn btn-primary">Salvar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>            
         </div>
     </main>
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-auto border-top">
@@ -128,6 +128,7 @@
         </ul>
     </footer>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src=""></script>
+    <script src="./src/js/obras.js" type="module"></script>
+    <script src="./src/js/dataset.js" type="module"></script>
 </body>
 </html>
