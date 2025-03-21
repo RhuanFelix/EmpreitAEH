@@ -24,6 +24,4 @@ let obrasDataset = [
     }
 ]
 
-// export default clientesDataset;
-
 export {clientesDataset, obrasDataset};

@@ -1,62 +1,74 @@
 import { obrasDataset } from './dataset.js';
 
 function loadLocalStorage() {
-    let obrasLocalStorage = localStorage.getItem("obras");
-    if (obrasLocalStorage == null) {
-        console.log("Carregando localStorage");
-        localStorage.setItem("obras", JSON.stringify(obrasDataset));
-        obrasLocalStorage = localStorage.getItem("obras");
-    }
-    return JSON.parse(obrasLocalStorage);
+  let obrasLocalStorage = localStorage.getItem('obras');
+  if (obrasLocalStorage == null) {
+    localStorage.setItem('obras', JSON.stringify(obrasDataset));
+    obrasLocalStorage = localStorage.getItem('obras');
+  }
+  return JSON.parse(obrasLocalStorage);
 }
 
-let obrasTable = document.getElementById("obras");
-function renderTable() {
-    obrasTable.innerHTML = `
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Tipo de Construção</th>
-            <th scope="col">Cliente</th>
-            <th scope="col">Logradouro</th>
-            <th scope="col">Bairro</th>
-            <th scope="col">Cidade</th>
-            <th scope="col">Estado</th>
-        </tr>
-    `;
-    for (let element of loadLocalStorage()) {
-        obrasTable.insertAdjacentHTML('beforeend', `
-            <tr>
-                <td>${element.id}</td>
-                <td>${element.tipoDeConstrucao}</td>
-                <td>${element.cliente}</td>
-                <td>${element.logradouro}</td>
-                <td>${element.bairro}</td>
-                <td>${element.cidade}</td>
-                <td>${element.estado}</td>
-            </tr>
-        `);
-    }
-}
+const loadObraTable = () => {
+  let obrasTable = document.getElementById('obras');
 
-renderTable();
-
-let obraForm = document.getElementById("obraForm");
-obraForm.onsubmit = (event) => {
-    event.preventDefault();
-    console.log("Submeteu o formulário");
-    
-    let tipoDeConstrucao = document.getElementById("TipoDeConstrucao").value;
-    let cliente = document.getElementById("cliente").value;
-    let logradouro = document.getElementById("logradouro").value;
-    let bairro = document.getElementById("bairro").value;
-    let cidade = document.getElementById("cidade").value;
-    let estado = document.getElementById("estado").value;
-    
-    let obras = loadLocalStorage();
-    let id = obras.length + 1;
-    let novaObra = { id, tipoDeConstrucao, cliente, logradouro, bairro, cidade, estado };
-    obras.push(novaObra);
-    
-    localStorage.setItem("obras", JSON.stringify(obras));
-    renderTable();
+  let obras = loadLocalStorage();
+  for (const obra of obras) {
+    obrasTable.insertAdjacentHTML('beforeend', getRowObraTable(obra));
+  }
 };
+
+const getRowObraTable = (obra) => {
+  return `<tr>
+    <td>${obra.id}</td>
+    <td>${obra.tipoDeConstrucao}</td>
+    <td>${obra.cliente}</td>
+    <td>${obra.logradouro}</td>
+    <td>${obra.bairro}</td>
+    <td>${obra.cidade}</td>
+    <td>${obra.estado}</td>
+  </tr>`;
+};
+
+function clearForm(form) {
+  $(':input', form).each(function () {
+    var type = this.type;
+    var tag = this.tagName.toLowerCase(); 
+    if (type == 'text' || type == 'password' || tag == 'textarea') this.value = '';
+    else if (type == 'checkbox' || type == 'radio') this.checked = false;
+    else if (tag == 'select') this.selectedIndex = -1;
+  });
+}
+
+let obraForm = document.getElementById('obraForm'); 
+
+$('#clienteModal').on('hidden.bs.modal', () => {
+  clearForm(obraForm);
+});
+
+obraForm.onsubmit = (event) => {
+  event.preventDefault();
+
+  let obraFormData = new FormData(obraForm);
+
+  let obra = Object.fromEntries(obraFormData);
+
+  let obras = loadLocalStorage();
+  obra.id = obras.length + 1;
+  obras.push(obra);
+  localStorage.setItem('obras', JSON.stringify(obras));
+
+  let obrasTable = document.getElementById('obras');
+  obrasTable.insertAdjacentHTML('beforeend', getRowObraTable(obra));
+
+  Toastify({
+    text: 'Obra cadastrada com sucesso!',
+    className: 'success',
+  }).showToast();
+
+  clearForm(obraForm);
+
+  $('#clienteModal').modal('hide');
+};
+
+loadObraTable();

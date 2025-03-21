@@ -7,6 +7,9 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+
+    <!-- Toastfy -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>Clientes</title>
 </head>
 
@@ -81,22 +84,19 @@
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label for="nome" class="form-label">Nome</label>
-                                    <input type="text" class="form-control" id="nome" aria-describedby="emailHelp"
-                                        placeholder="Digite seu nome">
+                                    <input type="text" class="form-control" name="nome" id="nome" aria-describedby="emailHelp" placeholder="Digite seu nome" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Digite seu email">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Digite seu email" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="cpf" class="form-label">CPF</label>
-                                    <input type="text" class="form-control" id="cpf"
-                                        placeholder="Digite seu CPF, ex: 410.834.840-01">
+                                    <input type="text" class="form-control" name="cpf" id="cpf" placeholder="Digite seu CPF, ex: 410.834.840-01" required>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                                    id="fechar">Fechar</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="fechar">Fechar</button>
                                 <button type="submit" class="btn btn-primary" id="botaoSalvar">Salvar</button>
                             </div>
                         </div>
@@ -126,6 +126,11 @@
 
     <!-- Bootstrap -->
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
     <script src="./src/js/index.js" type="module"></script>
     <script src="./src/js/dataset.js" type="module"></script>
 </body>

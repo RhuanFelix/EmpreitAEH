@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+
+    <!-- Toastfy -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>Obras</title>
 </head>
 <body class="d-flex flex-column min-vh-100">
@@ -76,27 +79,27 @@
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label for="TipoDeConstrucao" class="form-label">Tipo de Construção</label>
-                                    <input type="text" class="form-control" id="TipoDeConstrucao" placeholder="ex: casa, edifício">
+                                    <input type="text" class="form-control" name="tipoDeConstrucao" id="TipoDeConstrucao" placeholder="ex: casa, edifício" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="cliente" class="form-label">Cliente</label>
-                                    <input type="text" class="form-control" id="cliente" placeholder="Informe o nome do cliente">
+                                    <input type="text" class="form-control" name="cliente" id="cliente" placeholder="Informe o nome do cliente" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="logradouro" class="form-label">Logradouro</label>
-                                    <input type="text" class="form-control" id="logradouro" placeholder="Informe o Logradouro">
+                                    <input type="text" class="form-control" name="logradouro" id="logradouro" placeholder="Informe o Logradouro" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="bairro" class="form-label">Bairro</label>
-                                    <input type="text" class="form-control" id="bairro" placeholder="Informe o bairro">
+                                    <input type="text" class="form-control" name="bairro" id="bairro" placeholder="Informe o bairro" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="cidade" class="form-label">Cidade</label>
-                                    <input type="text" class="form-control" id="cidade" placeholder="Informe a cidade">
+                                    <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Informe a cidade" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="estado" class="form-label">Estado</label>
-                                    <input type="text" class="form-control" id="estado" placeholder="Informe o Estado">
+                                    <input type="text" class="form-control" name="estado" id="estado" placeholder="Informe o Estado" required>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -130,5 +133,9 @@
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./src/js/obras.js" type="module"></script>
     <script src="./src/js/dataset.js" type="module"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
 </body>
 </html>
